@@ -14,3 +14,4 @@ I had issues tracking the centre of mass of humans, as I was using the changes b
 Next time I'll try to use a light neural network to detect the presence of humans
 
 
+To run this code execute the batch command.
