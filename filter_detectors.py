@@ -1,5 +1,7 @@
 import cv2
 import numpy as np
+
+from rectangle_modifiers import getSnapshotOfRectangles
 '''
 Collection of basic human detection filters
 detect_moving objects is pretty robust 
@@ -43,6 +45,43 @@ def detect_moving_Objects(prev_frame, current_frame):
             x, y, w, h = cv2.boundingRect(contour)
             detections.append((x, y, w, h))
     return detections
+
+def detect_stationary_objects(prev_rects,enhanced_frame):
+    stationary_rectangles = []
+    snapshots = getSnapshotOfRectangles(prev_rects,enhanced_frame,with_rectangles=True)
+    for snapshot,rect in snapshots:
+                
+        if detect_stationary_figure(snapshot):
+                    
+            stationary_rectangles.append(rect)
+                
+            
+            
+
+            # Useful for creating a dataset, however it's not very good because it will only select things 
+            # that my filters will detect.
+            '''
+            scale_factor = 20
+
+            # Calculating the new size
+            new_width = int(width * scale_factor)
+            new_height = int(height * scale_factor)
+
+            # Resize the image
+            resized_snapshot = cv2.resize(snapshot, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
+
+            # Display the resized image
+            cv2.imshow('nonOverlapper', resized_snapshot)
+            key = cv2.waitKey(10000)
+
+            if key & 0xFF == ord('p'):
+                # If 'p' is pressed, save the snapshot
+                saved_filepath = save_snapshot_if_confirmed(snapshot)
+            elif key & 0xFF == ord('q'):
+                # If 'q' is pressed, break the loop to go to the next one
+                skip_counter = 5
+            '''
+    return stationary_rectangles
 
 
 
