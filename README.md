@@ -1,17 +1,34 @@
-# Thermal-detection
-Thermal detection in preparation for a separate project
 
-The main conceit of this project is to detect humans using a thermal camera without using any deep-learning techniques. This is due to the fact that this will later be built on to create a remote sensing drone, due to the nature of drones computation will be limited, and the computation will have to be done in real time.
+# Thermal Detection
+
+This project focuses on the detection of humans using a thermal camera without employing deep-learning techniques. The initiative is driven by the ambition to integrate this technology into a remote sensing drone, where computational resources are limited and processing must occur in real-time.
+
+## Data Source
+
+The thermal imagery data used in this project is obtained from the [OSU Thermal Pedestrian Database](http://vcipl-okstate.org/pbvs/bench/Data/03/download.html), which provides a comprehensive set of thermal images for developing and testing detection algorithms.
+
+## Overview
+
+The project employs basic image processing filters to detect humans in thermal images. This strategy is designed to ensure the system remains computationally light to facilitate its deployment on drones, where processing power is constrained.
+
+### Achievements
+
+- Successfully developed a human detection system using straightforward filtering techniques in just a day and a half.
+- Demonstrated promising results that serve as a solid foundation for future improvements.
+
+### Challenges
+
+- Experienced difficulty in accurately tracking the center of mass of humans due to the reliance on changes between sequential images.
+
+### Future Directions
+
+- Intend to investigate the application of lightweight neural networks to improve the accuracy of human detection while maintaining minimal computational requirements.
+
+## Getting Started
+
+To run this project, use the following command:
+
+./run.bat
 
 
-The data used for this project comes from 
-http://vcipl-okstate.org/pbvs/bench/Data/03/download.html
-
-The results from this project are promising, it was completed over the course of a day and a half, and i got decent detection working using mostly filters. 
-
-I had issues tracking the centre of mass of humans, as I was using the changes between photos.
-
-Next time I'll try to use a light neural network to detect the presence of humans
-
-
-To run this code execute the batch command.
+I've not made a bash or command script for this program, but you could just copy the commands within the run.bat onto whatever terminal you have. 
