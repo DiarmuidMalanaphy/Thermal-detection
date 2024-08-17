@@ -1,11 +1,10 @@
 @echo off
-echo Installing requirements...
-pip install -r requirements.txt
-echo Done.
+echo "Running 6a"
 
-echo starting the script
+call code\venv\Scripts\python code\main.py "code\6a"
+echo "Running 5a"
+call code\venv\Scripts\python code\main.py "code\5a"
+echo "Running 4a"
+call code\venv\Scripts\python code\main.py "code\4a"
 
-python main.py 6a 
-python main.py 5a
-python main.py 4a
 pause
